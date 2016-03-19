@@ -12,7 +12,7 @@
     <link href="css/styles.css" rel="stylesheet">
     <link href="css/queries.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
-    <link href="css/custom.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -66,7 +66,7 @@
             <div class="row">
               <div class="col-md-8 col-md-offset-2 wp1">
                 <h1 class="arrow">What is MOS</h1>
-                <p>Sed a lorem quis neque interdum <a href="#">consequat ut sed sem</a>. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent id tempor ipsum. Fusce at massa ac nunc porta fringilla sed eget neque. Quisque quis pretium nulla. Fusce eget bibendum neque, vel volutpat augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum et malesuada fames ac ante ipsum primis in faucibus.</p>
+                <p>MOS is the most lightweight recommendation system based on machine learning training mechanism. We are main to prvovide an easy and ready to use recommendation system for users even without any domain knowledge.</p>
               </div>
             </div>
           </div>
@@ -93,44 +93,57 @@
               <div class="col-md-12">
                 <h1 class="arrow"><em>Step 2</em><br/><br/>Choose Model</h1>
                 <div class="features-wrapper">
-                  <div class="col-md-4 wp4">
+                  <div class="col-md-3 wp4 model">
                     <div class="overlay-effect effects clearfix">
                       <div class="img">
                         <img src="img/model_11.png" alt="Portfolio Item">
                         <div class="overlay">
-                          <a href="#" class="expand"><i class="fa fa-search"></i><br>Use This Model</a>
+                          <a href="javascript:;" class="expand"><i class="fa fa-search"></i><br>Use This Model</a>
                           <a class="close-overlay hidden">x</a>
                         </div>
                       </div>
                     </div>
-                    <h2>Creative Minds</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                    <h2>Popularity</h2>
+                    <p>Training based on number views of item</p>
                   </div>
-                  <div class="col-md-4 wp4 delay-05s">
+                  <div class="col-md-3 wp4 model delay-05s">
                     <div class="overlay-effect effects clearfix">
                       <div class="img">
                         <img src="img/model_21.png" alt="Portfolio Item">
                         <div class="overlay">
-                          <a href="#" class="expand"><i class="fa fa-search"></i><br>Use This Model</a>
+                          <a href="javascript:;" class="expand"><i class="fa fa-search"></i><br>Use This Model</a>
                           <a class="close-overlay hidden">x</a>
                         </div>
                       </div>
                     </div>
-                    <h2>Creative Hearts</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                    <h2>Item-Similarity</h2>
+                    <p>Training based on user-item similarity</p>
                   </div>
-                  <div class="col-md-4 wp4 delay-1s">
+                  <div class="col-md-3 wp4 model delay-1s">
                     <div class="overlay-effect effects clearfix">
                       <div class="img">
                         <img src="img/model_31.png" alt="Portfolio Item">
                         <div class="overlay">
-                          <a href="#" class="expand"><i class="fa fa-search"></i><br>Use This Model</a>
+                          <a href="javascript:;" class="expand"><i class="fa fa-search"></i><br>Use This Model</a>
                           <a class="close-overlay hidden">x</a>
                         </div>
                       </div>
                     </div>
-                    <h2>Creative Ideas</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                    <h2>Factorization Model</h2>
+                    <p>A magical method</p>
+                  </div>
+                  <div id="mf" class="col-md-3 wp4 delay-1s">
+                    <div class="overlay-effect effects clearfix">
+                      <div class="img">
+                        <img src="img/model_31.png" alt="Portfolio Item">
+                        <div class="overlay">
+                          <a href="javascript:;" class="expand"><i class="fa fa-search"></i><br>Use This Model</a>
+                          <a class="close-overlay hidden">x</a>
+                        </div>
+                      </div>
+                    </div>
+                    <h2>MF</h2>
+                    <p>A magical method too</p>
                   </div>
                 </div>
               </div>
@@ -141,7 +154,43 @@
           <div class="container">
             <div class="row">
               <div class="col-md-12">
-                <a href="#" class="ignite-btn">Get Your System</a>
+                <a id="btn-result" href="javascript:;" class="ignite-btn">Get Your System</a>
+              </div>
+            </div>
+            <div id="model-result" class="row align-center">
+              <h1 class="arrow" style="color: white !important;">Your model id is:</h1>
+              <h1 id="modelId" style="color: white !important;"></h1>
+              <div class="col-xs-offset-1 col-xs-10">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Method</th>
+                      <th>Api</th>
+                      <th>Param</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>GET</td>
+                      <td>http://172.17.183.8:8000/apis/models</td>
+                      <td>None</td>
+                      <td>Get all current models info.</td>
+                    </tr>
+                    <tr>
+                      <td>GET</td>
+                      <td>http://172.17.183.8:8000/apis/models/:model_id</td>
+                      <td>None</td>
+                      <td>Get specific model info.</td>
+                    </tr>
+                    <tr>
+                      <td>POST</td>
+                      <td>http://172.17.183.8:8000/apis/models/:model_id/predict</td>
+                      <td>{userList: {Array}}</td>
+                      <td>Given an user list, predict the result.</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
@@ -161,7 +210,7 @@
                       <div class="col-md-4 wp5">
                         <img src="img/team_1.png" alt="Team Member">
                         <h2>Austin Kuo</h2>
-                        <p>Computer Science<br/>@National Tsing Hua University</p>
+                        <p>Computer Science<br/>National Tsing Hua University</p>
                         <div class="social">
                           <ul class="social-buttons">
                             <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
@@ -173,7 +222,7 @@
                       <div class="col-md-4 wp5 delay-05s">
                         <img src="img/team_2.png" alt="Team Member">
                         <h2>Mark YEI</h2>
-                        <p>Telecommunications Engineering<br/>@National Taiwan University</p>
+                        <p>Telecommunications Engineering<br/>National Taiwan University</p>
                         <div class="social">
                           <ul class="social-buttons">
                             <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
@@ -185,7 +234,7 @@
                       <div class="col-md-4 wp5 delay-1s">
                         <img src="img/team_3.png" alt="Team Member">
                         <h2>Tanya Wang</h2>
-                        <p>Computer Science<br/>@National Taiwan University</p>
+                        <p>Computer Science<br/>National Taiwan University</p>
                         <div class="social">
                           <ul class="social-buttons">
                             <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
@@ -198,8 +247,8 @@
                     <li>
                       <div class="col-md-4 wp5">
                         <img src="img/team_4.png" alt="Team Member">
-                        <h2>Chuya Yang</h2>
-                        <p>Computer Science<br/>@National Tsing Hua University</p>
+                        <h2>Grace Yang</h2>
+                        <p>Computer Science<br/>National Tsing Hua University</p>
                         <div class="social">
                           <ul class="social-buttons">
                             <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
@@ -210,8 +259,8 @@
                       </div>
                       <div class="col-md-4 wp5 delay-05s">
                         <img src="img/team_5.png" alt="Team Member">
-                        <h2>HW LEE</h2>
-                        <p>Electrical Engineering<br/>@National Tsing Hua University</p>
+                        <h2>Tony LEE</h2>
+                        <p>Electrical Engineering<br/>National Tsing Hua University</p>
                         <div class="social">
                           <ul class="social-buttons">
                             <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
@@ -223,7 +272,7 @@
                       <div class="col-md-4 wp5 delay-1s">
                         <img src="img/team_6.png" alt="Team Member">
                         <h2>Yan Ho</h2>
-                        <p>Information Management<br/>@National Taiwan University</p>
+                        <p>Information Management<br/>National Taiwan University</p>
                         <div class="social">
                           <ul class="social-buttons">
                             <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
@@ -263,6 +312,31 @@
             </div>
           </div>
         </footer>
+        <div id="model-selection" class="flex flex-vertical-center flex-align-center">
+          <div>
+            <header class="align-center">
+              <h1 class="arrow">You choose 'MF' model</h1>
+            </header>
+            <div style="margin: 2em;">
+              <div class="row">
+                <label for="num_factors" class="col-xs-10">num_factors<br/><em>(Default=32，整數，越大越準，但越慢)</em></label>
+                <input id="num_factors" class="col-xs-2" type="text" placeholder=""/>
+              </div>
+              <div class="row">
+                <label for="regularization" class="col-xs-10">regularization<br/><em>(Default: 1e-10，小數，建議 1e-12 到 1)</em></label>
+                <input id="regularization" class="col-xs-2" type="text" placeholder=""/>
+              </div>
+              <div class="row">
+                <label for="max_iterations" class="col-xs-10">max_iterations<br/>(Default: 50，整數，建議 50 到 100)</label>
+                <input id="max_iterations" class="col-xs-2" type="text" placeholder=""/>
+              </div>
+            </div>
+            <div class="align-center">
+              <button id="btn-model-send" class="btn btn-default">Send</button>
+              <button id="btn-model-cancel" class="btn btn-default">Cancel</button>
+            </div>
+          </div>
+        </div>
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -271,5 +345,6 @@
         <script src="js/scripts.js"></script>
         <script src="js/jquery.flexslider.js"></script>
         <script src="js/modernizr.js"></script>
+        <script src="js/index.js"></script>
       </body>
     </html>
